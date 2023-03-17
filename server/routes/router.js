@@ -25,6 +25,9 @@ router.post('/', (req, res) => {
     console.log('POST req.body', req.body);
     let queryText = 'INSERT INTO "shoppinglist" ("name", "quantity", "unit") VALUES ($1, $2, $3);'
     pool.query(queryText, [req.body.name, req.body.quantity, req.body.unit])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error))
 })
 */
 
