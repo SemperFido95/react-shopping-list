@@ -20,8 +20,8 @@ const addItem = () => {
             setItemName('');
             setItemQuantity('');
             setItemUnit('');
-            console.log('testing post');
             List;
+            console.log('testing post');
         }).catch((error) => {
             console.log(`Error in Post ${error}`);
             alert('Something went wrong');

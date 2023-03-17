@@ -4,9 +4,10 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log("In GET request");
-    let queryText = 'SELECT * from "shoppinglist"';
+    let queryText = 'SELECT * FROM shoppinglist';
     pool.query(queryText).then((results) => {
         res.send(results.rows)
+        console.log('results sent');
     }).catch((error) => { 
         console.log(error);
         res.sendStatus(500);
@@ -28,7 +29,7 @@ router.post('/', (req, res) => {
 //router.delete('/:id' (req, res) => {
 //  console.log(req.params.id);
 //   const deleteIndex = Number(req.params.id);
-//// let queryText = 'DELETE from "shoppinglist"
+// let queryText = 'DELETE from "shoppinglist"
 // })
 
 module.exports = router;
