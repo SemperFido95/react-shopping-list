@@ -3,12 +3,9 @@ import axios from 'axios';
 import './List.css';
 
 function getList() {
+    console.log('testing getList');
     let [itemList, setItemList] = useState([]);
 
-    useEffect(() => {
-        fetchShoppingList();
-    }, []);
-    
     const fetchShoppingList = () => {
         axios.get('/list').then((response) => {
             setItemList(response.data);
@@ -18,6 +15,10 @@ function getList() {
         })
     }
 
+    useEffect(() => {
+        fetchShoppingList();
+    }, []);
+    
     return (
         <div>
             <h2>The Shopping List</h2>
