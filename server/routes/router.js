@@ -5,7 +5,6 @@ const pool = require('../modules/pool');
 router.get('/', (req, res) => {
     console.log("In GET request");
     let queryText = 'SELECT * from "shoppinglist"';
-    
     pool.query(queryText).then((results) => {
         res.send(results.rows)
     }).catch((error) => { 
