@@ -52,4 +52,29 @@ res.sendStatus(500);
     });
 });
 
+//RESET PUT ROUTE
+
+router.put('/', (req, res) => {
+    let queryText = 'UPDATE "shoppinglist" SET "purchased" = $1 WHERE id > 0'
+    pool.query(queryText, [false]).then((response) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in PUT ${error}`);
+        res.sendStatus(500);
+    })
+})
+
+
+//CLEAR ALL DELETE ROUTE
+
+router.delete('/', (req, res) => {
+    let queryText = 'DELETE FROM shoppinglist WHERE id > 0';
+    pool.query(queryText).then((response) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in DELETE ${error}`);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

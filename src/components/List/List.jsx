@@ -63,6 +63,26 @@ function GetList() {
         })
     }
 
+    function resetAll() {
+        axios.put('/list').then((response) => {
+            console.log(response);
+            fetchShoppingList();
+        }).catch((error) =>{
+            console.log(`Error in PUT ${error}`);
+            alert('Something went wrong.');
+        })
+    }
+
+    function clearAll() {
+        axios.delete('/list').then((response) => {
+            console.log(response);
+            fetchShoppingList();
+        }).catch((error) => {
+            console.log(`Error in clearAll ${error}`);
+            alert('Something went wrong.');
+        });
+    }
+
     return (
         <div>
             <form onSubmit={submitForm}>
@@ -102,6 +122,8 @@ function GetList() {
                     }
                 </tbody>
             </table>
+            <button onClick={resetAll}>Reset</button>
+            <button onClick={clearAll}>Clear</button>
         </div>
     )
 };
