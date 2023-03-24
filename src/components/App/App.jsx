@@ -3,7 +3,7 @@
 import Header from '../Header/Header.jsx'
 import './App.css';
 import List from '../List/List';
-import Item from '../Item/Item.jsx';
+// import Item from '../Item/Item.jsx';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <Item />
+                {/* <Item /> */}
                 <List />
             </main>
         </div>

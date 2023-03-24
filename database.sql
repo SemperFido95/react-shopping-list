@@ -13,3 +13,6 @@ VALUES ('milk', 1, 'gallon');
 
 INSERT INTO shoppinglist (name, quantity)
 VALUES ('apples', 3.5);
+
+ALTER TABLE shoppinglist
+ADD purchased BOOLEAN DEFAULT FALSE;

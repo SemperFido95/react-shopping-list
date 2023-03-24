@@ -4,10 +4,9 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
     console.log("In GET request");
-    let queryText = 'SELECT * FROM shoppinglist';
+    let queryText = 'SELECT * FROM shoppinglist ORDER BY purchased, name';
     pool.query(queryText).then((results) => {
         res.send(results.rows)
-        console.log('results sent');
     }).catch((error) => { 
         console.log(error);
         res.sendStatus(500);
@@ -26,10 +25,31 @@ router.post('/', (req, res) => {
     });
 });
 
-//router.delete('/:id' (req, res) => {
-//  console.log(req.params.id);
-//   const deleteIndex = Number(req.params.id);
-// let queryText = 'DELETE from "shoppinglist"
-// })
+router.delete('/:id', (req, res) => {
+ console.log(req.params.id);
+  const deleteIndex = Number(req.params.id);
+let queryText = 'DELETE from "shoppinglist" WHERE "id" = $1'
+pool.query(queryText, [deleteIndex]).then((results) => {
+    res.sendStatus(200);   
+}).catch((error) => {
+console.log(error);
+res.sendStatus(500);
+});
+
+});
+
+
+ router.put('/:id', (req, res) => {
+    console.log('Put Request made for /list');
+    let itemID = req.params.id;
+    console.log(req.params);
+    let queryText = 'UPDATE "shoppinglist" SET "purchased" = $1 WHERE "id" = $2';
+    pool.query(queryText, [true, itemID]).then((response) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in PUT ${error}`);
+        res.sendStatus(500);
+    });
+});
 
 module.exports = router;

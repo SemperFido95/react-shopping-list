@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import List from '../List/List.jsx';
 
 
-const addItem = () => {
+const AddItem = () => {
     const [itemName, setItemName] = useState('');
     const [itemQuantity, setItemQuantity ] = useState('');
     const [itemUnit, setItemUnit] = useState('');
@@ -11,7 +10,6 @@ const addItem = () => {
     const submitForm = (event) => {
         event.preventDefault();
 
-        
         axios.post('/list', {
             name: itemName,
             quantity: itemQuantity,
@@ -20,13 +18,14 @@ const addItem = () => {
             setItemName('');
             setItemQuantity('');
             setItemUnit('');
-            List;
             console.log('testing post');
         }).catch((error) => {
             console.log(`Error in Post ${error}`);
             alert('Something went wrong');
         });
     }
+
+    
 
     return (
         <form onSubmit={submitForm}>
@@ -42,4 +41,4 @@ const addItem = () => {
         )
 };
 
-export default addItem;
+export default AddItem;
