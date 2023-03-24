@@ -11,7 +11,6 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                {/* <Item /> */}
                 <List />
             </main>
         </div>

@@ -1,11 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react';
 
-
-const AddItem = () => {
-    const [itemName, setItemName] = useState('');
-    const [itemQuantity, setItemQuantity ] = useState('');
-    const [itemUnit, setItemUnit] = useState('');
+function Item({
+                itemName,
+                setItemName,
+                itemQuantity,
+                setItemQuantity,
+                itemUnit,
+                setItemUnit,
+                fetchShoppingList
+}) {
 
     const submitForm = (event) => {
         event.preventDefault();
@@ -18,14 +21,13 @@ const AddItem = () => {
             setItemName('');
             setItemQuantity('');
             setItemUnit('');
+            fetchShoppingList();
             console.log('testing post');
         }).catch((error) => {
-            console.log(`Error in Post ${error}`);
+            console.log(`Error in POST ${error}`);
             alert('Something went wrong');
         });
     }
-
-
 
     return (
         <form onSubmit={submitForm}>
@@ -38,7 +40,7 @@ const AddItem = () => {
             onChange={(e) => setItemUnit(e.target.value)}/>
             <input type="submit"/>
         </form>
-        )
-};
+    )
+}
 
-export default AddItem;
+export default Item;
