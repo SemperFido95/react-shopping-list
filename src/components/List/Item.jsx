@@ -38,7 +38,7 @@ function Item({
             onChange={(e) => setItemQuantity(e.target.value)} />
             Unit: <input type="text" value={itemUnit}
             onChange={(e) => setItemUnit(e.target.value)}/>
-            <input type="submit"/>
+            <input id="submit-button" type="submit"/>
         </form>
     )
 }

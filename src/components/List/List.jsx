@@ -43,12 +43,14 @@ function GetList() {
                 itemList={itemList}
                 fetchShoppingList={fetchShoppingList}
             />
-            <Reset 
-                fetchShoppingList={fetchShoppingList}
-            />
-            <Clear 
-                fetchShoppingList={fetchShoppingList}
-            />
+            <div id="buttons">
+                <Reset 
+                    fetchShoppingList={fetchShoppingList}
+                />
+                <Clear 
+                    fetchShoppingList={fetchShoppingList}
+                />
+            </div>
         </div>
     )
 };
