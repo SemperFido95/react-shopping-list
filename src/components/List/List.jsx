@@ -28,7 +28,7 @@ function GetList() {
     }, []);
 
     return (
-        <div>
+        <div id='list'>
             <Item 
                 fetchShoppingList={fetchShoppingList}
                 itemName={itemName}
