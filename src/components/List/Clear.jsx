@@ -1,5 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
+import Button from '@mui/material/Button';
 
 function Clear ({fetchShoppingList}) {
     function clearAll() {
@@ -29,7 +30,7 @@ function Clear ({fetchShoppingList}) {
     }
     
     return (
-        <button onClick={clearAll}>Clear</button> 
+        <Button onClick={clearAll}>Clear</Button> 
     )
 }
 
