@@ -34,20 +34,6 @@ grid-template-columns: auto auto auto;
 gap: 8px;
 }
 
-.banner-header {
-  background-color:  rgb(107, 224, 237);
-  padding: 16px;
-  text-align: center;
-}
-
-h1 {
-  color: #333333;
-  font-size: 36px;
-  font-weight: bold;
-  margin: 0;
-  text-transform: uppercase;
-}
-
 #buttons {
   display: flex;
   justify-content: space-around;
