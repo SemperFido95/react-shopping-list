@@ -16,3 +16,5 @@ VALUES ('apples', 3.5);
 
 ALTER TABLE shoppinglist
 ADD purchased BOOLEAN DEFAULT FALSE;
+
+-- THIS IS A TEST
