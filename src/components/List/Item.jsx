@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { maxHeight, maxWidth } from '@mui/system';
+import { height, maxHeight, maxWidth } from '@mui/system';
 import Button from '@mui/material/Button';
 
 
@@ -66,7 +66,21 @@ function Item({
                     </Paper>
                     {/* <input id="submit-button" type="submit"/> */}
                 </form>
-                <Button variant="contained" onClick={submitForm}>Submit</Button>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '1em'
+                    }}
+                >
+                    <Paper elevation={10}>
+                    <Button 
+                        variant="contained" onClick={submitForm}
+                    >
+                        Submit
+                    </Button>
+                    </Paper>                                    
+                </Box>
                 </Paper>
         </Box>
     )
