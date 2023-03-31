@@ -7,37 +7,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import Clear from './Clear';
-import Reset from './Reset';
-
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { deepPurple } from '@mui/material/colors';
-import Avatar from '@mui/material/Avatar';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function TableSet( {itemList, fetchShoppingList} ) {
 
-const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: deepPurple[500],
-    },
-  },
-});
 
-const StyledAvatar = styled(Avatar)`
-  ${({ theme }) => `
-  cursor: pointer;
-  background-color: ${theme.palette.primary.main};
-  transition: ${theme.transitions.create(['background-color', 'transform'], {
-    duration: theme.transitions.duration.standard,
-  })};
-  &:hover {
-    background-color: ${theme.palette.secondary.main};
-    transform: scale(1.3);
-  }
-  `}
-`;
-    
     function deleteItem(id) {
         axios.delete(`/list/${id}`).then((response) => {
             console.log(response);
@@ -81,8 +58,8 @@ const StyledAvatar = styled(Avatar)`
                             <TableCell align='right'>{item.quantity}</TableCell>
                             <TableCell align='right'>{item.unit}</TableCell>
                             <TableCell align='right'>{item.purchased.toString()}</TableCell>
-                            <TableCell align='right'><Button variant="contained" onClick={() => markPurchased(item.id)} style={item.purchased === true ? {display: 'none'} : {display: ''}}>Purchase</Button></TableCell>
-                            <TableCell align='right'><Button variant='contained' onClick={() => deleteItem(item.id)}>Remove</Button></TableCell>
+                            <TableCell align='right'><IconButton variant="contained" onClick={() => markPurchased(item.id)} style={item.purchased === true ? {display: 'none'} : {display: ''}}><ShoppingCartIcon /></IconButton></TableCell>
+                            <TableCell align='right'><IconButton variant='contained' onClick={() => deleteItem(item.id)}><DeleteIcon /></IconButton></TableCell>
                         </TableRow>
                     ))
                 }
