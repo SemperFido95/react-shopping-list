@@ -49,7 +49,7 @@ function Item({
                 },
             }}        
         >
-            <Paper elevation={0}>
+            <Paper elevation={10}>
                 <form onSubmit={submitForm}>
                     <Paper elevation={6}>
                         Name: <input type="text" value={itemName}
@@ -65,7 +65,7 @@ function Item({
                         onChange={(e) => setItemUnit(e.target.value)}/>
                     </Paper>
                     <br />
-                    <Button><input id="submit-button" type="submit"/></Button>
+                    <input id="submit-button" type="submit"/>
                 </form>
                 </Paper>
         </Box>
