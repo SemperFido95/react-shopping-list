@@ -70,7 +70,8 @@ function Item({
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                        marginTop: '1em'
+                        marginTop: '1em',
+                        marginBottom: '.5em'
                     }}
                 >
                     <Paper elevation={10}>
