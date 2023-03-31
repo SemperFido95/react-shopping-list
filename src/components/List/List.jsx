@@ -5,6 +5,7 @@ import Item from './Item';
 import Table from './Table';
 import Reset from './Reset';
 import Clear from './Clear';
+import TableSet from './Table';
 
 function GetList() {
     // console.log('testing getList');
@@ -39,7 +40,7 @@ function GetList() {
                 setItemUnit={setItemUnit}
             />
             <h2>The Shopping List</h2>
-            <Table 
+            <TableSet 
                 itemList={itemList}
                 fetchShoppingList={fetchShoppingList}
             />
