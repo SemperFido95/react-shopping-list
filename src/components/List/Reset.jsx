@@ -1,5 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
+import Button from '@mui/material/Button';
 
 function Reset({fetchShoppingList}) {
     
@@ -30,7 +31,7 @@ function Reset({fetchShoppingList}) {
     }
 
     return (
-        <button onClick={resetAll}>Reset</button>
+        <Button sx={{width: '50%'}} variant='contained' color="error" onClick={resetAll}>Reset</Button>
     )
 }
 
