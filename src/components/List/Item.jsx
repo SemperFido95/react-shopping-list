@@ -64,9 +64,9 @@ function Item({
                         Unit: <input type="text" value={itemUnit}
                         onChange={(e) => setItemUnit(e.target.value)}/>
                     </Paper>
-                    <br />
-                    <input id="submit-button" type="submit"/>
+                    {/* <input id="submit-button" type="submit"/> */}
                 </form>
+                <Button variant="contained" onClick={submitForm}>Submit</Button>
                 </Paper>
         </Box>
     )
