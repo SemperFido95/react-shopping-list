@@ -1,6 +1,40 @@
 import axios from 'axios';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 
-function Table( {itemList, fetchShoppingList} ) {
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { deepPurple } from '@mui/material/colors';
+import Avatar from '@mui/material/Avatar';
+
+function TableSet( {itemList, fetchShoppingList} ) {
+
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: deepPurple[500],
+    },
+  },
+});
+
+const StyledAvatar = styled(Avatar)`
+  ${({ theme }) => `
+  cursor: pointer;
+  background-color: ${theme.palette.primary.main};
+  transition: ${theme.transitions.create(['background-color', 'transform'], {
+    duration: theme.transitions.duration.standard,
+  })};
+  &:hover {
+    background-color: ${theme.palette.secondary.main};
+    transform: scale(1.3);
+  }
+  `}
+`;
     
     function deleteItem(id) {
         axios.delete(`/list/${id}`).then((response) => {
@@ -23,33 +57,38 @@ function Table( {itemList, fetchShoppingList} ) {
     }
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Units</th>
-                    <th>Purchased</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+        <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+                <TableRow>
+                    <TableCell align='right'>Item</TableCell>
+                    <TableCell align='right'>Quantity</TableCell>
+                    <TableCell align='right'>Units</TableCell>
+                    <TableCell align='right'>Purchased</TableCell>
+                    <TableCell align='right'></TableCell>
+                    <TableCell align='right'></TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+           
                 {
                     itemList.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
-                            <td>{item.unit}</td>
-                            <td>{item.purchased.toString()}</td>
-                            <td><button onClick={() => markPurchased(item.id)} style={item.purchased === true ? {display: 'none'} : {display: ''}}>Purchase</button></td>
-                            <td><button onClick={() => deleteItem(item.id)}>Remove</button></td>
-                        </tr>
+                        <TableRow key={item.id}
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
+                            <TableCell align='right'>{item.name}</TableCell>
+                            <TableCell align='right'>{item.quantity}</TableCell>
+                            <TableCell align='right'>{item.unit}</TableCell>
+                            <TableCell align='right'>{item.purchased.toString()}</TableCell>
+                            <TableCell align='right'><Button variant="contained" onClick={() => markPurchased(item.id)} style={item.purchased === true ? {display: 'none'} : {display: ''}}>Purchase</Button></TableCell>
+                            <TableCell align='right'><Button variant='contained' onClick={() => deleteItem(item.id)}>Remove</Button></TableCell>
+                        </TableRow>
                     ))
                 }
-            </tbody>
-        </table>
+            
+            </TableBody>
+        </Table>
+        </TableContainer>
     )
 }
 
-export default Table;
+export default TableSet;
