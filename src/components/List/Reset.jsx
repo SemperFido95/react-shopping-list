@@ -31,7 +31,7 @@ function Reset({fetchShoppingList}) {
     }
 
     return (
-        <Button variant='contained' color="error" onClick={resetAll}>Reset</Button>
+        <Button sx={{width: '50%'}} variant='contained' color="error" onClick={resetAll}>Reset</Button>
     )
 }
 

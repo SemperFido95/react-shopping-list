@@ -30,7 +30,7 @@ function Clear ({fetchShoppingList}) {
     }
     
     return (
-        <Button variant='contained' sx={{backgroundColor: '#ff9800'}} onClick={clearAll}>Clear</Button> 
+        <Button variant='contained' sx={{backgroundColor: '#ff9800', width: '50%'}} onClick={clearAll}>Clear</Button> 
     )
 }
 
