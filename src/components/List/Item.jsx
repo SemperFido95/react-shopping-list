@@ -49,18 +49,18 @@ function Item({
                 },
             }}        
         >
-            <Paper elevation={10}>
+            <Paper elevation={1}>
                 <form onSubmit={submitForm}>
-                    <Paper elevation={6}>
+                    <Paper elevation={12}>
                         Name: <input type="text" value={itemName}
                         onChange={(e) => setItemName(e.target.value)}/>
                     </Paper>
                     <br />
-                    <Paper elevation={6}>
+                    <Paper elevation={7}>
                         Quantity: <input type="number" value={itemQuantity}
                         onChange={(e) => setItemQuantity(e.target.value)} />
                     </Paper>
-                    <Paper elevation={6}>
+                    <Paper elevation={12}>
                         Unit: <input type="text" value={itemUnit}
                         onChange={(e) => setItemUnit(e.target.value)}/>
                     </Paper>
